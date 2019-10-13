@@ -4,9 +4,9 @@ python:
 
 addons:
   sonarcloud:
-    organization: "andrelimabessa-github"
+    organization: "andrewbessa"
     token:
-      secure: "0a3c6f7a1cef835805dc7051fa2007883a0ce5d8"
+      secure: "05980d80e5797828f69f1e84b65600be3c0d47b7"
 
 install:
   - pip install pytest pytest-cov pytz
