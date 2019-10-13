@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.6"      # current default Python on Travis CI
+
+addons:
+  sonarcloud:
+    organization: "andrelimabessa-github"
+    token:
+      secure: "0a3c6f7a1cef835805dc7051fa2007883a0ce5d8"
+
+install:
+  - pip install pytest pytest-cov pytz
+script:
+  - pytest --cov=./ --cov-report xml
+  - sonar-scanner
