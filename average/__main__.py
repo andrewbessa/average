@@ -4,7 +4,7 @@ import argparse
 from . import translation_delivered_parser, TranslationDelivered, AverageCalc
 
 def process_args(args):
-    
+    print(type(args))
     average_calc = AverageCalc(args.window_size)
     output_file = None
     for item in translation_delivered_parser(args.input_file):
