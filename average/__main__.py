@@ -1,32 +1,21 @@
 import sys
 import json
+import argparse
 
 from . import translation_delivered_parser, TranslationDelivered, AverageCalc
 
-def help():
-    print("--window_size : Define the average window size. Mandatory argument")
-    print("--input_file  : Input file path. Mandatory argument")
-
-def process_args(argv):
-    result = {}
+def process_args(args):
     
-    if "--window_size" in argv and "--input_file" in argv:
-        result["window_size"] = argv[argv.index("--window_size") + 1]  
-        result["input_file"] = argv[argv.index("--input_file") + 1]
-    else:
-        help()
+    average_calc = AverageCalc(args.window_size)
+    for item in translation_delivered_parser(args.input_file):
+        average_calc.add_tranlation_delivered(item)
     
-    return result
+    for item in average_calc.cal_avg_delivered_time():
+        print(json.dumps({"date": item[0], "average_delivery_time": item[1]}))
 
-def main():
-    args = process_args(sys.argv)
-    
-    if len(args) > 0:
-        average_calc = AverageCalc(args["window_size"])
-        for item in translation_delivered_parser(args["input_file"]):
-            average_calc.add_tranlation_delivered(item)
-        
-        for item in average_calc.cal_avg_delivered_time():
-            print(json.dumps({"date": item[0], "average_delivery_time": item[1]}))
+parser = argparse.ArgumentParser()
+parser.add_argument("input_file", help="Input file path with events.")
+parser.add_argument("-w", "--window_size", default=1, type=int, help="Define the average window size. The default size is 1.")
 
-main()
+process_args(parser.parse_args())
+
