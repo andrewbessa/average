@@ -32,32 +32,33 @@ class AverageCalc:
         """Keep the list with events in the average time window"""
         self.__remove_element_out_of_range(reference)
 
-        for item in self.__timestamp_duration_list:
-            if item[0] > reference:
+        for event in self.__timestamp_duration_list:
+            if event[0] > reference:
                 break
-            self.__overlap_list.append(item)
+            self.__overlap_list.append(event)
     
     def __remove_element_out_of_range(self, reference):
         result = []
-        for item in self.__overlap_list:
-            if item[1] > reference:
-                result.append(item)
+        for event in self.__overlap_list:
+            if event[1] > reference:
+                result.append(event)
         self.__overlap_list = result
 
     def __update_timestamp_duration_list(self):
-        """Remove from timestamp_duration the overlap_list's item"""
-        for item in self.__overlap_list:
-            if item in self.__timestamp_duration_list:
-                self.__timestamp_duration_list.remove(item)
+        """Remove from timestamp_duration the overlap_list's event"""
+        for event in self.__overlap_list:
+            if event in self.__timestamp_duration_list:
+                self.__timestamp_duration_list.remove(event)
 
     def __calc_overlap_average(self):
         average = 0
-        if len(self.__overlap_list) > 0:
-            size = len(self.__overlap_list)
-            amount = 0
-            for item in self.__overlap_list:
-                if item[0] < item[1]:
-                    amount += item[2]
+        amount = 0
+        size = len(self.__overlap_list)
+        if size > 0:
+            for event in self.__overlap_list:
+                if event[0] < event[1]:
+                    amount += event[2]
+            
             average = amount/size
             if int(average) == average:
                 average = int(average)
