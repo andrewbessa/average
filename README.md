@@ -73,8 +73,8 @@ The output file would be something in the following format.
 ```
 
 * The "testfile" directory has:
-* * input file with events that are used to test the application
-* * output file with expected results are used in the test process
+  * input file with events that are used to test the application
+  * output file with expected results are used in the test process
 
 
 python -m average testfile/events02.json -w 10 
