@@ -56,20 +56,24 @@ The output file would be something in the following format.
 │   ├── __init__.py
 │   ├── __main__.py
 │   ├── average_calc.py
+│   ├── cli.py
 │   └── parser.py
 ├── tests
 │   ├── __init__.py
-│   └── test_average.py
+│   ├── test_average.py
+│   └── test_cli.py
 ├── testfile
 │   ├── events01.json
 │   ├── events02.json
 │   ├── result01.txt
 │   ├── result02.txt
 │   ├── result03.txt
-│   └── result04.txt
+│   ├── result04.txt
+│   ├── result05.txt
+│   └── result06.txt
+├── requirements.txt
 ├── sonar-project.properties
 └── README.md
-
 ```
 
 The "testfile" directory has:
