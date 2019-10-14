@@ -6,7 +6,7 @@
 
 ## About the Challenge
 
-The system will receive a file with a stream of events. Each event has a format similar with:
+The system will receive a file with a stream of events. Each event has a format similar to:
 
 ```json
 {
@@ -74,47 +74,47 @@ The output file would be something in the following format.
 
 The "testfile" directory has:
   * input file with events that are used to test the application
-  * output file with expected results are used in the test process
+  * output file with expected results used in the test process
 
 ## Install & Run
 
-1. Clone the repository
+	1. Clone the repository
 
 ```sh
 $ git clone https://github.com/andrewbessa/average
 ```
 
-2. Enter the directory
+	2. Enter in the directory
 
 ```sh
 $ cd average
 ```
 
-3. Install the requirements
+	3. Install the requirements
 
 ```sh
 $ pip install -r requirements.txt
 ```
 
-4. Run the application
+	4. Run the application
 
 ```sh
 $ python -m average testfile/events02.json
 ```
 
-The default value of the average delivery time is 1 minute. If you desire change it, use the option -w  
+	The default value of the average delivery time is 1 minute. If you desire change it, use the option -w  
 
 ```sh
 $ python -m average testfile/events02.json -w 10
 ```
 
-To save the results in a file, use the option -o to inform the output file path.
+	To save the results in a file, use the option -o to inform the output file path.
 
 ```sh
 $ python -m average testfile/events02.json -w 10 -o outputfile.json
 ```
 
-5. Run tests
+	5. Run tests
 
 ```sh
 $ pytest
