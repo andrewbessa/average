@@ -72,9 +72,50 @@ The output file would be something in the following format.
 
 ```
 
-* The "testfile" directory has:
+The "testfile" directory has:
   * input file with events that are used to test the application
   * output file with expected results are used in the test process
 
+## Install & Run
 
-python -m average testfile/events02.json -w 10 
+1. Clone the repository
+
+```sh
+$ git clone https://github.com/andrewbessa/average
+```
+
+2. Enter the directory
+
+```sh
+$ cd average
+```
+
+3. Install the requirements
+
+```sh
+$ pip install -r requirements.txt
+```
+
+4. Run the application
+
+```sh
+$ python -m average testfile/events02.json
+```
+
+The default value of the average delivery time is 1 minute. If you desire change it, use the option -w  
+
+```sh
+$ python -m average testfile/events02.json -w 10
+```
+
+To save the results in a file, use the option -o to inform the output file path.
+
+```sh
+$ python -m average testfile/events02.json -w 10 -o outputfile.json
+```
+
+5. Run tests
+
+```sh
+$ pytest
+```
