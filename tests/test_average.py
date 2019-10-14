@@ -42,4 +42,4 @@ def test_case_file_three_events_window_10():
 
 def test_case_file_three_events_window_20():
     average_calc = average.AverageCalc(20)
-    compare_average_result(average_calc, "events02.json", "result04.txt")    
+    compare_average_result(average_calc, "events02.json", "result05.txt")    
