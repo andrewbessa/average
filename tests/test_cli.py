@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from pathlib import Path
 from . import average
 
@@ -26,6 +27,7 @@ def test_process_args_interface():
         for event in file:
             result.append(event)
 
+    os.remove(file_output)
     assert result_expected == result
 
 
